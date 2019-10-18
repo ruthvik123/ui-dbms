@@ -1,0 +1,26 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Oredo Dashbord</h1>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav style="width:25%" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+         
+          <mat-checkbox [(ngModel)] = "checked1"  (click)="changeValue(checked1)" >Check me!</mat-checkbox>
+    
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+  
+       <div *ngIf="checked1">
+        <app-net-profit-component></app-net-profit-component>
+       </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
