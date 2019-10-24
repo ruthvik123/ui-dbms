@@ -1,6 +1,7 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
     <mat-toolbar color="primary" class="example-toolbar">
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <button mat-icon-button    (click)="snav.toggle();changeValue2(toggle)" >
+        <mat-icon>menu</mat-icon></button>
       <h1 class="example-app-name">Oredo Dashbord</h1>
     </mat-toolbar>
   
@@ -17,8 +18,8 @@
   
       <mat-sidenav-content>
   
-       <div *ngIf="checked1">
-        <app-net-profit-component></app-net-profit-component>
+       <div *ngIf="checked1" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
+        <app-net-profit-component ></app-net-profit-component>
        </div>
       </mat-sidenav-content>
     </mat-sidenav-container>

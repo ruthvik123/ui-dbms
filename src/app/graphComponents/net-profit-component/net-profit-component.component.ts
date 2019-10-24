@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -6,14 +6,25 @@ import * as Highcharts from 'highcharts';
   templateUrl: './net-profit-component.component.html',
   styleUrls: ['./net-profit-component.component.css']
 })
-export class NetProfitComponentComponent implements OnInit {
+export class NetProfitComponentComponent implements OnInit,AfterViewInit {
+    ngAfterViewInit() {
+        // this.defaultWidth = this.elementView.nativeElement.offsetWidth;
+        // console.log(this.defaultWidth);
+    }
 
   constructor() { }
 chart : any;
+// @ViewChild("chart", {static: true}) elementView;
+
+defaultWidth;
+
+
+
+
   ngOnInit() {
  
     Highcharts.chart('container', {
-
+    
       title: {
           text: 'Oredo sales'
       },

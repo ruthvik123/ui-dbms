@@ -10,7 +10,10 @@ export class DashboardComponent implements OnInit,OnDestroy {
 
   mobileQuery: MediaQueryList;
   checked1: boolean = true;
+  toggle : boolean = false;
   private _mobileQueryListener: () => void;
+
+ 
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -19,6 +22,7 @@ export class DashboardComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
+   // console.log(this.toggle);
   }
 
   ngOnDestroy(): void {
@@ -27,6 +31,13 @@ export class DashboardComponent implements OnInit,OnDestroy {
 
   changeValue(value) {
     value = !value;
-        console.log(value);
+       // console.log(value);
     }
+
+    changeValue2(value) {
+      value = !value;
+      this.toggle = value;
+         // console.log(this.toggle);
+      }
+
 }
