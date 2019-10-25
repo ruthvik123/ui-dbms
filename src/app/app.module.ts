@@ -54,6 +54,9 @@ import {MatTreeModule} from '@angular/material/tree';
 // graph components
 import { NetProfitComponentComponent } from './graphComponents/net-profit-component/net-profit-component.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { DataServiceService } from './services/data-service.service';
+
 
 
 @NgModule({
@@ -64,6 +67,8 @@ import { NetProfitComponentComponent } from './graphComponents/net-profit-compon
     NetProfitComponentComponent
   ],
   imports: [
+    
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -122,7 +127,7 @@ import { NetProfitComponentComponent } from './graphComponents/net-profit-compon
   exports: [
     
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
