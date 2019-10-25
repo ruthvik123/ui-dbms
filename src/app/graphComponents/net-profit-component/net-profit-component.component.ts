@@ -2,6 +2,7 @@ import { Component, OnInit,AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { HttpHandler } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
 
 
 
@@ -27,17 +28,21 @@ defaultWidth;
   ngOnInit() {
  
    
-this.dataService.getSalesData().subscribe(
+    forkJoin([this.dataService.getSalesData1(),this.dataService.getSalesData2() ]).subscribe(
     apiresp => 
     // console.log(response),
     // this.response = response 
 
 
-Highcharts.stockChart('container', 
+Highcharts.chart('container', 
 
 {
     rangeSelector: {
         selected: 1
+    },
+
+    xAxis:{
+        type : 'datetime',
     },
 
     title: {
@@ -46,12 +51,22 @@ Highcharts.stockChart('container',
 
     series: [{
         type : undefined,
-        name: 'AAPL',
-        data: apiresp,
+        name: 'Apple Sales',
+        data: apiresp[0],
         tooltip: {
             valueDecimals: 2
         }
-    }]
+    },
+    {
+        type : undefined,
+        name: 'Google Sales',
+        data: apiresp[1],
+        tooltip: {
+            valueDecimals: 2
+        }
+    }
+
+]
 }
 
 

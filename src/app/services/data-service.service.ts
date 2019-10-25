@@ -9,8 +9,12 @@ export class DataServiceService {
 
   constructor(private http : HttpClient) { }
 
-getSalesData(){
+getSalesData1(){
 return this.http.get('../../assets/sampleSalesData.JSON');
 }
+
+getSalesData2(){
+  return this.http.get('../../assets/samplesales2.json');
+  }
 
 }
