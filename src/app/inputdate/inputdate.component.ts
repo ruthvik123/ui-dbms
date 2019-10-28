@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import {DashboardComponent} from '../dashboard/dashboard.component';
+import {DateSenderService} from '../date-sender.service';
 
 @Component({
   selector: 'app-inputdate',
@@ -11,7 +13,7 @@ startDate : Date ;
 endDate : Date ;
 errorMsg : String = "";
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, private stateService : DateSenderService) { }
 
   ngOnInit() {
   
@@ -29,6 +31,8 @@ this.errorMsg = "enter correct dates"
 
 }
 else{
+  this.stateService.startDate = this.startDate;
+  this.stateService.endDate = this.endDate;
   this.router.navigate(['/dashboard']);
 }
   }

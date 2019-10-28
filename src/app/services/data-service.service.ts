@@ -9,7 +9,7 @@ export class DataServiceService {
 
   constructor(private http : HttpClient) { }
 
-getSalesData1(){
+getSalesData1(){ // take in the date here to make the rest call.
 return this.http.get('../../assets/sampleSalesData.JSON');
 }
 

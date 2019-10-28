@@ -1,7 +1,6 @@
 import { Component, OnInit,AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import { DataServiceService } from 'src/app/services/data-service.service';
-import { HttpHandler } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
 
@@ -28,7 +27,7 @@ defaultWidth;
   ngOnInit() {
  
    
-    forkJoin([this.dataService.getSalesData1(),this.dataService.getSalesData2() ]).subscribe(
+    forkJoin([this.dataService.getSalesData1(),this.dataService.getSalesData2() ]).subscribe(  // pass dates as inputs here 
     apiresp => 
     // console.log(response),
     // this.response = response 

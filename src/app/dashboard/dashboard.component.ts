@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
+import {DateSenderService} from '../date-sender.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,16 +14,23 @@ export class DashboardComponent implements OnInit,OnDestroy {
   toggle : boolean = false;
   private _mobileQueryListener: () => void;
 
+  dateStart : Date;
+  dateEnd : Date;
  
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private stateService : DateSenderService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  
   }
 
   ngOnInit() {
-   // console.log(this.toggle);
+    this.dateStart = this.stateService.startDate;
+    this.dateEnd = this.stateService.endDate;
+
+    console.log(this.dateStart);
+    console.log(this.dateEnd);
   }
 
   ngOnDestroy(): void {

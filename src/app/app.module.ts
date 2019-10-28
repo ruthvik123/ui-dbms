@@ -56,6 +56,7 @@ import { NetProfitComponentComponent } from './graphComponents/net-profit-compon
 
 import { HttpClientModule } from '@angular/common/http';
 import { DataServiceService } from './services/data-service.service';
+import {DateSenderService} from '../app/date-sender.service';
 
 
 
@@ -127,7 +128,7 @@ import { DataServiceService } from './services/data-service.service';
   exports: [
     
   ],
-  providers: [DataServiceService],
+  providers: [DataServiceService,DateSenderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
