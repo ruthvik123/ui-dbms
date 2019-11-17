@@ -48,10 +48,10 @@ defaultWidth;
 
     {
 
-this.data = this.graphFormatter(apiresp[0]);
-// console.log(this.data);
 
-let keys = Object.keys(this.data);
+console.log(apiresp[0]);
+
+let keys = Object.keys(apiresp[0]);
 
 let seriesData = [];
 
@@ -60,7 +60,7 @@ let tempObj =
 {
             type : undefined,
             name: i,
-            data: this.data[i],
+            data: apiresp[0][i],
             tooltip: {
                 valueDecimals: 2
             }
@@ -87,7 +87,7 @@ let tempObj =
             text: 'Net Profits'
         },
     
-        series: seriesData
+         series: seriesData
     
     }
     
@@ -120,19 +120,19 @@ let tempObj =
     return finalDate;
    }
 
-   graphFormatter(response){
+//    graphFormatter(response){
      
-    let res = {};
-    for( let i of response){
-      if( ! (i["contentPartner"] in res)){
-      res[i["contentPartner"]] = [[i["date"],i["price"] ]];
-      }
-      else{
-        res[i["contentPartner"]].push([i["date"],i["price"] ]);  
-      }
-    }
-    return res;
-  }
+//     let res = {};
+//     for( let i of response){
+//       if( ! (i["contentPartner"] in res)){
+//       res[i["contentPartner"]] = [[i["date"],i["price"] ]];
+//       }
+//       else{
+//         res[i["contentPartner"]].push([i["date"],i["price"] ]);  
+//       }
+//     }
+//     return res;
+//   }
 
 
 
