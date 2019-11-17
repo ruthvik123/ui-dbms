@@ -62,17 +62,26 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
         let keys = Object.keys(apiresp[0]);
 
         let seriesData = [];
-
+        let count = 0;
         for (let i of keys) {
+          let v = false;
+          if(count < 2){
+            v = true;
+          }
           let tempObj = {
             type: undefined,
             name: i,
             data: apiresp[0][i],
             tooltip: {
               valueDecimals: 2
-            }
+            },
+            visible : v,
+            marker: {
+              symbol: 'dot'
+          }
           };
           seriesData.push(tempObj);
+          count++;
         }
 
         Highcharts.chart(
@@ -90,6 +99,13 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
             title: {
               text: "Net Profits"
             },
+            plotOptions: {
+              series: {
+                  marker: {
+                      radius: 3.3
+                  }
+              }
+          },
 
             series: seriesData
           }
