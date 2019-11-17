@@ -7,20 +7,33 @@
   
     <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav style="width:25%" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-sidenav style="width:20%" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" mode="side">
         <mat-nav-list>
          
           <mat-checkbox [(ngModel)] = "checked1"  (click)="changeValue(checked1)" >Net Profits graph</mat-checkbox>
     
+        <br>
+
+        <mat-checkbox [(ngModel)] = "checked2"  (click)="changeValue(checked2)" >Customer count graph</mat-checkbox>
+
         </mat-nav-list>
       </mat-sidenav>
   
       <mat-sidenav-content>
-  
+
+  <div>
        <div *ngIf="checked1" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
         <app-net-profit-component ></app-net-profit-component>
        </div>
+  
+       <br>
+
+       <div *ngIf="checked2" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
+        <app-customer-count></app-customer-count>
+       </div>
+</div>
+
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

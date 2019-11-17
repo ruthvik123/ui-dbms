@@ -8,7 +8,9 @@ import { MediaMatcher } from "@angular/cdk/layout";
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
-  checked1: boolean = true;
+  checked1: boolean = true; // net-profit-component
+  checked2: boolean = true; //  customer-count-component
+
   toggle: boolean = false;
   private _mobileQueryListener: () => void;
 

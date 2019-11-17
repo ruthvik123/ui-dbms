@@ -20,22 +20,6 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
 
   paramStartDate: String;
   paramEndDate: String;
-  monthMapper = [
-    "jan",
-    "feb",
-    "mar",
-    "apr",
-    "may",
-    "jun",
-    "Jul",
-    "aug",
-    "sept",
-    "oct",
-    "nov",
-    "dec"
-  ];
-
-  data: any;
 
   constructor(
     private dataService: DataServiceService,
@@ -49,8 +33,11 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.dateStart = this.stateService.startDate;
     this.dateEnd = this.stateService.endDate;
-    this.paramStartDate = this.dateParser(this.dateStart);
-    this.paramEndDate = this.dateParser(this.dateEnd);
+    this.paramStartDate = this.dataService.dateParser(this.dateStart);
+    this.paramEndDate = this.dataService.dateParser(this.dateEnd);
+
+    console.log(this.paramStartDate);
+    console.log(this.paramEndDate);
 
     forkJoin([
       this.dataService.testFunction(this.paramStartDate, this.paramEndDate)
@@ -102,7 +89,7 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
             plotOptions: {
               series: {
                   marker: {
-                      radius: 3.3
+                      radius: 3
                   }
               }
           },
@@ -114,17 +101,5 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
     );
   }
 
-  dateParser(Inputdate) {
-    let date = Inputdate.getDate();
-    if (date / 10 == 0) {
-      date = "0" + String(date);
-    } else {
-      date = String(date);
-    }
-    let month = this.monthMapper[Inputdate.getMonth()];
-    let year = String(Inputdate.getFullYear());
-    let finalDate = date + "-" + month + "-" + year;
-    return finalDate;
-  }
 
 }

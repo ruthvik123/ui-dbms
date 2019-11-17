@@ -57,6 +57,7 @@ import { NetProfitComponentComponent } from './graphComponents/net-profit-compon
 import { HttpClientModule } from '@angular/common/http';
 import { DataServiceService } from './services/data-service.service';
 import {DateSenderService} from '../app/date-sender.service';
+import { CustomerCountComponent } from './graphComponents/customer-count/customer-count.component';
 
 
 
@@ -65,7 +66,8 @@ import {DateSenderService} from '../app/date-sender.service';
     AppComponent,
     InputdateComponent,
     DashboardComponent,
-    NetProfitComponentComponent
+    NetProfitComponentComponent,
+    CustomerCountComponent
   ],
   imports: [
     
