@@ -2,6 +2,7 @@ import { Component, OnInit,AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts/highstock';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { forkJoin } from 'rxjs';
+import {DateSenderService} from '../../date-sender.service';
 
 
 
@@ -17,8 +18,19 @@ export class NetProfitComponentComponent implements OnInit,AfterViewInit {
         // console.log(this.defaultWidth);
         
     }
+   
 
-  constructor(private dataService : DataServiceService) { }
+    dateStart : Date;
+    dateEnd : Date;
+    
+  
+    paramStartDate : String;
+    paramEndDate : String;
+   monthMapper = ['jan','feb','mar','apr','may','jun','Jul','aug','sept','oct','nov','dec']; 
+
+data : any;
+
+  constructor(private dataService : DataServiceService, private stateService : DateSenderService) { }
 chartData : any;
 // @ViewChild("chart", {static: true}) elementView;
 
@@ -26,50 +38,66 @@ defaultWidth;
 
   ngOnInit() {
  
-   
-    forkJoin([this.dataService.getSalesData1(),this.dataService.getSalesData2() ]).subscribe(  // pass dates as inputs here 
+    this.dateStart = this.stateService.startDate;
+    this.dateEnd = this.stateService.endDate;
+    this.paramStartDate = this.dateParser(this.dateStart);
+    this.paramEndDate = this.dateParser(this.dateEnd);
+
+    forkJoin([this.dataService.testFunction(this.paramStartDate,this.paramEndDate)]).subscribe(  // pass dates as inputs here 
     apiresp => 
-    // console.log(response),
-    // this.response = response 
 
-
-Highcharts.chart('container', 
-
-{
-    rangeSelector: {
-        selected: 1
-    },
-
-    xAxis:{
-        type : 'datetime',
-    },
-
-    title: {
-        text: 'AAPL Stock Price'
-    },
-
-    series: [{
-        type : undefined,
-        name: 'Apple Sales',
-        data: apiresp[0],
-        tooltip: {
-            valueDecimals: 2
-        }
-    },
     {
-        type : undefined,
-        name: 'Google Sales',
-        data: apiresp[1],
-        tooltip: {
-            valueDecimals: 2
-        }
-    }
 
-]
+this.data = this.graphFormatter(apiresp[0]);
+// console.log(this.data);
+
+let keys = Object.keys(this.data);
+
+let seriesData = [];
+
+for(let i of keys){
+let tempObj = 
+{
+            type : undefined,
+            name: i,
+            data: this.data[i],
+            tooltip: {
+                valueDecimals: 2
+            }
+        }
+        seriesData.push(tempObj);
 }
 
 
-),
+
+
+
+    Highcharts.chart('container', 
+
+    {
+        rangeSelector: {
+            selected: 1
+        },
+    
+        xAxis:{
+            type : 'datetime',
+        },
+    
+        title: {
+            text: 'Net Profits'
+        },
+    
+        series: seriesData
+    
+    }
+    
+    
+    )
+
+
+
+
+}
 
 );
 
@@ -77,5 +105,36 @@ Highcharts.chart('container',
 
 
   }
+
+  dateParser(Inputdate){
+    let date = Inputdate.getDate();
+    if(date / 10 == 0){
+      date = '0'+String(date);
+    }
+    else{
+      date = String(date);
+    }
+    let month = this.monthMapper[Inputdate.getMonth()];
+    let year = String(Inputdate.getFullYear());
+    let finalDate = date+'-'+month+'-'+year;
+    return finalDate;
+   }
+
+   graphFormatter(response){
+     
+    let res = {};
+    for( let i of response){
+      if( ! (i["contentPartner"] in res)){
+      res[i["contentPartner"]] = [[i["date"],i["price"] ]];
+      }
+      else{
+        res[i["contentPartner"]].push([i["date"],i["price"] ]);  
+      }
+    }
+    return res;
+  }
+
+
+
 
 }

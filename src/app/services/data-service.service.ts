@@ -17,4 +17,8 @@ getSalesData2(){
   return this.http.get('../../assets/samplesales2.json');
   }
 
+  testFunction(startDate,endDate){
+    return this.http.get('http://localhost:8080/sales/'+startDate+'/'+endDate);
+    }
+
 }
