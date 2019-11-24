@@ -1,4 +1,7 @@
-# Orido
+# Orido 
+UI for academic project - This tool generates various graphs based on 2 inputs - start date, end date. We can infer the trends in sales, customer behavious, customer count, etc. for the specific time frame given as an input, from the graphs generated.
+
+The server code for this UI is in a seperate repo called "server-dbms"
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.10.
 
