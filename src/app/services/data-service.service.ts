@@ -40,6 +40,10 @@ getSalesData2(){
       return this.http.get('http://localhost:8080/customerCount/'+startDate+'/'+endDate);
       }
    
+    getTotalProfits(startDate,endDate){
+      return this.http.get('http://localhost:8080/netProfit/'+startDate+'/'+endDate);
+    }
+
 
     dateParser(Inputdate) {
       let date = Inputdate.getDate();

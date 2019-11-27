@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DataServiceService } from "src/app/services/data-service.service";
 import { DateSenderService } from "src/app/date-sender.service";
 import * as Highcharts from "highcharts";
+//import * as exporting from 'highcharts/modules/exporting.src';
 
 @Component({
   selector: "app-customer-count",
@@ -32,12 +33,12 @@ export class CustomerCountComponent implements OnInit {
         let keys = Object.keys(apiresp);
 
         let seriesData = [];
-        // let count = 0;
+        let count = 0;
         for (let i of keys) {
-          // let v = false;
-          // if (count < 2) {
-          //   v = true;
-          // }
+          let v = false;
+          if (count < 5) {
+            v = true;
+          }
           let tempObj = {
             type: undefined,
             name: i,
@@ -45,13 +46,13 @@ export class CustomerCountComponent implements OnInit {
             tooltip: {
               valueDecimals: 2
             },
-            // visible: v,
+            visible: v,
             marker: {
               symbol: "dot"
             }
           };
           seriesData.push(tempObj);
-         // count++;
+         count++;
         }
 
         Highcharts.chart(
@@ -77,9 +78,17 @@ export class CustomerCountComponent implements OnInit {
               }
             },
 
-            series: seriesData
+            series: seriesData,
+          //   navigation: {
+          //     buttonOptions: {
+          //         enabled: true
+          //     }
+          // }
           }
         );
+
+
+        
       });
   }
 }
