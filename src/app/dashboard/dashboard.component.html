@@ -19,7 +19,8 @@
         <br>
 
         <mat-checkbox [(ngModel)] = "checked2"  (click)="changeValue(checked2)" >Customer count graph</mat-checkbox>
-
+      <br>
+      <mat-checkbox [(ngModel)] = "checked4"  (click)="changeValue(checked4)" >Refunds Graph</mat-checkbox>
 
 
         </mat-nav-list>
@@ -45,6 +46,11 @@
         <app-customer-count></app-customer-count>
        </div>
 
+<br>
+
+       <div *ngIf="checked4" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
+        <app-refund-component></app-refund-component>
+        </div>
 <br>
  
 </div>

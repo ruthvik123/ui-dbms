@@ -44,6 +44,10 @@ getSalesData2(){
       return this.http.get('http://localhost:8080/netProfit/'+startDate+'/'+endDate);
     }
 
+    getRefunds(startDate,endDate){
+      return this.http.get('http://localhost:8080/refund/'+startDate+'/'+endDate);
+    }
+
 
     dateParser(Inputdate) {
       let date = Inputdate.getDate();

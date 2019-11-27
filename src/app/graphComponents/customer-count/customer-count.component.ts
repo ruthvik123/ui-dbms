@@ -26,6 +26,7 @@ export class CustomerCountComponent implements OnInit {
     this.dateEnd = this.stateService.endDate;
     this.paramStartDate = this.dataService.dateParser(this.dateStart);
     this.paramEndDate = this.dataService.dateParser(this.dateEnd);
+    
 
     this.dataService
       .getCustomerCount(this.paramStartDate, this.paramEndDate)
@@ -59,6 +60,10 @@ export class CustomerCountComponent implements OnInit {
           "container2",
 
           {
+            // chart: {
+            //   type: "column"
+            // }
+            //,
             rangeSelector: {
               selected: 1
             },
