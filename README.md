@@ -3,7 +3,7 @@ UI for academic project - This tool generates various graphs based on 2 inputs -
 
 The server code for this UI is in a seperate repo called "server-dbms"
 
-###This is how the UI Looks.
+### This is how the UI Looks.
 
 ![alt text](https://github.com/ruthvik123/ui-dbms/blob/master/Orido%20dashboard.png)
 
