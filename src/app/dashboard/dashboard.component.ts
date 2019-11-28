@@ -12,6 +12,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   checked2: boolean = true; //  customer-count-component
   checked3: boolean = true; //  app-total-profits-component
   checked4: boolean = true; // app-refund-component
+  checked5: boolean = true; // app-partner-share-component
+  checked6: boolean = true; // app-service-revenue-component
 
   toggle: boolean = false;
   private _mobileQueryListener: () => void;

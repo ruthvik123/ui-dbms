@@ -48,6 +48,14 @@ getSalesData2(){
       return this.http.get('http://localhost:8080/refund/'+startDate+'/'+endDate);
     }
 
+    getPartnerShare(startDate,endDate){
+      return this.http.get('http://localhost:8080/contentPartnerShare/'+startDate+'/'+endDate);
+    }
+
+    getServiceShare(startDate,endDate){
+      return this.http.get('http://localhost:8080/serviceRevenue/'+startDate+'/'+endDate);
+    }
+
 
     dateParser(Inputdate) {
       let date = Inputdate.getDate();

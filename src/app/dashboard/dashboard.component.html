@@ -21,7 +21,11 @@
         <mat-checkbox [(ngModel)] = "checked2"  (click)="changeValue(checked2)" >Customer count graph</mat-checkbox>
       <br>
       <mat-checkbox [(ngModel)] = "checked4"  (click)="changeValue(checked4)" >Refunds Graph</mat-checkbox>
+      <br>
+      <mat-checkbox [(ngModel)] = "checked5"  (click)="changeValue(checked5)" >Content partner share graph</mat-checkbox>
 
+      <br>
+      <mat-checkbox [(ngModel)] = "checked6"  (click)="changeValue(checked6)" >Service Type Wise Revenue graph</mat-checkbox>
 
         </mat-nav-list>
       </mat-sidenav>
@@ -52,8 +56,19 @@
         <app-refund-component></app-refund-component>
         </div>
 <br>
+
+       <div *ngIf="checked5" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
+        <app-partner-share-component></app-partner-share-component>
+        </div>
+
+        <br>
+
+         <div *ngIf="checked6" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
+         <app-service-revenue-component></app-service-revenue-component>
+         </div>
+
  
-</div>
+</div> 
 
       </mat-sidenav-content>
     </mat-sidenav-container>

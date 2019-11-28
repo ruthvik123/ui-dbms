@@ -60,6 +60,8 @@ import {DateSenderService} from '../app/date-sender.service';
 import { CustomerCountComponent } from './graphComponents/customer-count/customer-count.component';
 import { TotalProfitsComponentComponent } from './graphComponents/total-profits-component/total-profits-component.component';
 import { RefundComponentComponent } from './graphComponents/refund-component/refund-component.component';
+import { PartnerShareComponentComponent } from './graphComponents/partner-share-component/partner-share-component.component';
+import { ServiceRevenueComponentComponent } from './graphComponents/service-revenue-component/service-revenue-component.component';
 
 
 
@@ -71,7 +73,9 @@ import { RefundComponentComponent } from './graphComponents/refund-component/ref
     NetProfitComponentComponent,
     CustomerCountComponent,
     TotalProfitsComponentComponent,
-    RefundComponentComponent
+    RefundComponentComponent,
+    PartnerShareComponentComponent,
+    ServiceRevenueComponentComponent
   ],
   imports: [
     
