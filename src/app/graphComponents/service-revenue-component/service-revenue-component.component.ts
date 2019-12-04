@@ -48,7 +48,7 @@ export class ServiceRevenueComponentComponent implements OnInit {
             },
             yAxis: {
               title: {
-                text: "in USD "
+                text: "Revenue in USD "
               }
             },
             tooltip: {
@@ -56,7 +56,7 @@ export class ServiceRevenueComponentComponent implements OnInit {
                 '<span style="font-size:10px">{point.key}</span><table>',
               pointFormat:
                 '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} QR</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} USD</b></td></tr>',
               footerFormat: "</table>",
               shared: true,
               useHTML: true
