@@ -37,7 +37,7 @@ export class TotalProfitsComponentComponent implements OnInit {
               type: "column"
             },
             title: {
-              text: "Total Profits Per Month"
+              text: "Ooredoo Net Content Revenue"
             },
             xAxis: {
               categories: apiresp[0],
@@ -45,7 +45,7 @@ export class TotalProfitsComponentComponent implements OnInit {
             },
             yAxis: {
               title: {
-                text: "in Qatari Riyal "
+                text: "Revenue in USD"
               }
             },
             tooltip: {
@@ -53,7 +53,7 @@ export class TotalProfitsComponentComponent implements OnInit {
                 '<span style="font-size:10px">{point.key}</span><table>',
               pointFormat:
                 '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} QR</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} USD</b></td></tr>',
               footerFormat: "</table>",
               shared: true,
               useHTML: true
@@ -67,7 +67,7 @@ export class TotalProfitsComponentComponent implements OnInit {
             series: [
               {
                 type: undefined,
-                name: "Net Profit",
+                name: "Net Revenue",
                 data: apiresp[1]
               }
             ]

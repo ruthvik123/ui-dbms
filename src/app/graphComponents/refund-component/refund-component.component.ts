@@ -73,9 +73,14 @@ export class RefundComponentComponent implements OnInit {
           xAxis: {
             type: "datetime"
           },
+          yAxis: {
+            title: {
+              text: " Refunds in USD "
+            }
+          },
 
           title: {
-            text: "Refund"
+            text: "Refunds per Content Partner"
           },
           plotOptions: {
             series: {

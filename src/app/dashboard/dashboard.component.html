@@ -2,7 +2,7 @@
     <mat-toolbar color="primary" class="example-toolbar">
       <button mat-icon-button    (click)="snav.toggle();changeValue2(toggle)" >
         <mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Oredo Dashbord</h1>
+      <h1 class="example-app-name">Ooredoo Dashboard</h1>
     </mat-toolbar>
   
     <mat-sidenav-container class="example-sidenav-container"
@@ -12,15 +12,15 @@
         <mat-nav-list>
          
            
-            <mat-checkbox [(ngModel)] = "checked3"  (click)="changeValue(checked3)" >Total Profits </mat-checkbox>
+            <mat-checkbox [(ngModel)] = "checked3"  (click)="changeValue(checked3)" >Ooredoo net content revenue </mat-checkbox>
             <br>
-          <mat-checkbox [(ngModel)] = "checked1"  (click)="changeValue(checked1)" >Net Profits graph</mat-checkbox>
+          <mat-checkbox [(ngModel)] = "checked1"  (click)="changeValue(checked1)" >Content Partner - Daily Stats</mat-checkbox>
     
         <br>
 
-        <mat-checkbox [(ngModel)] = "checked2"  (click)="changeValue(checked2)" >Customer count graph</mat-checkbox>
+        <mat-checkbox [(ngModel)] = "checked2"  (click)="changeValue(checked2)" >Customers per Content Partner </mat-checkbox>
       <br>
-      <mat-checkbox [(ngModel)] = "checked4"  (click)="changeValue(checked4)" >Refunds Graph</mat-checkbox>
+      <mat-checkbox [(ngModel)] = "checked4"  (click)="changeValue(checked4)" >Refunds per Content Partner </mat-checkbox>
       <br>
       <mat-checkbox [(ngModel)] = "checked5"  (click)="changeValue(checked5)" >Content partner share graph</mat-checkbox>
 
@@ -35,7 +35,6 @@
   <div>
     <br>
       <div id="Formater" *ngIf = "dataCheck" >Number of data points processed:  {{dataPoints}} </div>
-      <br>
       <br>
 
       <div *ngIf="checked3" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">

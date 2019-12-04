@@ -71,9 +71,14 @@ export class CustomerCountComponent implements OnInit {
             xAxis: {
               type: "datetime"
             },
+            yAxis: {
+              title: {
+                text: "Number Of Customers"
+              }
+            },
 
             title: {
-              text: "Customer count"
+              text: "Customers per Content Partner"
             },
             plotOptions: {
               series: {

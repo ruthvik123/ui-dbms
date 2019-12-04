@@ -82,9 +82,14 @@ export class NetProfitComponentComponent implements OnInit, AfterViewInit {
             xAxis: {
               type: "datetime"
             },
+            yAxis: {
+              title: {
+                text: " Revenue in USD "
+              }
+            },
 
             title: {
-              text: "Net Profits"
+              text: "Content Partner - Daily Revenue Details"
             },
             plotOptions: {
               series: {

@@ -48,7 +48,7 @@ export class ServiceRevenueComponentComponent implements OnInit {
             },
             yAxis: {
               title: {
-                text: "in Qatari Riyal "
+                text: "in USD "
               }
             },
             tooltip: {
