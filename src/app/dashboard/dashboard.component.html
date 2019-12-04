@@ -33,9 +33,14 @@
       <mat-sidenav-content>
 
   <div>
+    <br>
+      <div id="Formater" *ngIf = "dataCheck" >Number of data points processed:  {{dataPoints}} </div>
+      <br>
+      <br>
 
       <div *ngIf="checked3" [ngClass]="{'toggle-on': toggle==true, 'toggle-off': toggle==false}">
           <app-total-profits-component></app-total-profits-component>
+
          </div>
 
          <br>

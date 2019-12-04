@@ -56,6 +56,10 @@ getSalesData2(){
       return this.http.get('http://localhost:8080/serviceRevenue/'+startDate+'/'+endDate);
     }
 
+    getDataPoints(startDate,endDate){
+      return this.http.get('http://localhost:8080/dataPoints/'+startDate+'/'+endDate);
+    }
+
 
     dateParser(Inputdate) {
       let date = Inputdate.getDate();
