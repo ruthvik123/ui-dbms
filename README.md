@@ -1,5 +1,5 @@
 # Orido 
-UI for academic project - This tool generates various graphs based on 2 inputs - start date, end date. We can infer the trends in sales, customer behavious, customer count, etc. for the specific time frame given as an input, from the graphs generated.
+UI for academic project - This tool generates various graphs based on 2 inputs - start date, end date. We can infer the trends in sales, customer behavious, customer count, etc. for the specific time frame given as an input, from the graphs generated.We can select the graphs which we want from the side menu and only those graphs will be visible.
 
 The server code for this UI is in a seperate repo called "server-dbms"
 
